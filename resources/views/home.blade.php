@@ -5,7 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">{{ Auth::user()->id }}</div>
+                <div class="card-header">{{ Auth::user()->name }}</div>
+                <div class="card-header">{{ Auth::user()->email }}</div>
+                <div class="card-header">{{ Auth::user()->created_at }}</div>
+                <div class="card-header">{{ Auth::user()->updated_at }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +17,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <h1>Hello {{ Auth::user()->name }}</h1>
+                    <h2>Profile page</h2>
                 </div>
             </div>
         </div>
