@@ -42,13 +42,29 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+
+{{--                        @if (Route::has('login'))--}}
+{{--                            <div class="">--}}
+{{--                                @auth--}}
+{{--                                    --}}{{-- if user is auth --}}
+{{--                                    <a href="{{ url('/home') }}">Profile</a>--}}
+{{--                                @else--}}
+{{--                                    <a href="{{ route('login') }}">Войти</a>--}}
+
+{{--                                    @if (Route::has('register'))--}}
+{{--                                        <a href="{{ route('register') }}">Зарегистрироваться</a>--}}
+{{--                                    @endif--}}
+{{--                                @endauth--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('LoginNAV') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('залогиниться') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('RegisterNAV') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('зарегаться') }}</a>
                                 </li>
                             @endif
                         @else
@@ -75,22 +91,6 @@
             </div>
         </nav>
         <main class="py-4">
-            <div class="container">
-                @if (Route::has('login'))
-                    <div class="">
-                        @auth
-                        {{-- if user is auth --}}
-                            <a href="{{ url('/home') }}">Profile</a>
-                        @else
-                            <a href="{{ route('login') }}">Войти</a>
-
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Зарегистрироваться</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-            </div>
             @yield('content')
         </main>
     </div>

@@ -3,7 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <h1>FrontPage</h1>
+            <div class="col-12">
+                <h1>{{ __('Стоимость строительных работ') }}</h1>
+                <p class="h1">{{ __('Сантехника, отопление, фильтра') }}</p>
+                <p class="h1">...</p>
+            </div>
         </div>
     </div>
 @endsection
