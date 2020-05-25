@@ -44,11 +44,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('LoginNAV') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('RegisterNAV') }}</a>
                                 </li>
                             @endif
                         @else
@@ -74,18 +74,18 @@
                 </div>
             </div>
         </nav>
-
         <main class="py-4">
-            <div class="flex-center position-ref full-height">
+            <div class="container">
                 @if (Route::has('login'))
-                    <div class="top-right links">
+                    <div class="">
                         @auth
+                        {{-- if user is auth --}}
                             <a href="{{ url('/home') }}">Profile</a>
                         @else
-                            <a href="{{ route('login') }}">Sign in</a>
+                            <a href="{{ route('login') }}">Войти</a>
 
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
+                                <a href="{{ route('register') }}">Зарегистрироваться</a>
                             @endif
                         @endauth
                     </div>
