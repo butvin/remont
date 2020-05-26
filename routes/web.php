@@ -22,6 +22,9 @@ Auth::routes();
 //Route::view('/', 'frontpage'); // => works
 
 Route::get('/', 'FrontPageController@index');
+Route::resource('services', 'ServiceController');
+Route::get('/services', 'ServiceController@index')->name('services');
+Route::get('deactivate', 'ServiceController@deactivate')->name('deactivate');
 
 //Route::get('/', function(){
 //    return view('frontpage');

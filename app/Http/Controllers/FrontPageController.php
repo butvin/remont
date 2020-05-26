@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Service;
+//use App\Http\Controllers\ServiceController;
+
 class FrontPageController extends Controller
 {
     /**
@@ -24,4 +27,6 @@ class FrontPageController extends Controller
     {
         return view('frontpage');
     }
+
+
 }
