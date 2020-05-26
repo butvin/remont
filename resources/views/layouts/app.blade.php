@@ -24,6 +24,8 @@
 <body>
     <div id="app">
 
+        @include('services.index')
+
         @include('layouts.header')
 
         <main class="py-4">

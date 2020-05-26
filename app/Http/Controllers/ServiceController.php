@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
+    private array $dump;
     /**
      * Display a listing of the resource.
      *
@@ -15,12 +16,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-//        $services = Service::all();
-
-//        return view('services.index',compact('services'));
-//        $services = Service::latest()->paginate(5);
-//        return view('services.index',compact('services'))
-//            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $services =  Service::all();
     }
 
     /**
@@ -30,7 +26,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        //return view('services.create');
     }
 
     /**
@@ -88,14 +84,35 @@ class ServiceController extends Controller
     {
         //
     }
+
     /**
-     * Remove the specified resource from storage.
+     * Import services data to DB
      *
-     * @param  \App\Service  $service
-     * @return \Illuminate\Http\Response
+     * @param string $names
+     * @param string $prices
+     * @param string $dimensions
+     * @return array
      */
-    public function deactivate(Service $service)
+    public function import(string $names, string $prices, string $dimensions)
     {
-        //
+        $nameArr = explode(PHP_EOL, $names);
+        $priceArr = explode(PHP_EOL, $prices);
+        $dimensionArr = explode(PHP_EOL, $dimensions);
+
+        if (count($nameArr) === count($priceArr) &&
+            count($priceArr) === count($dimensionArr)){
+
+            $dump = [];
+            $n = count($nameArr)-1;
+
+            for ($i = 0; $i <= $n; $i++) {
+                $dump[$i] = [
+                    trim($nameArr[$i]),
+                    floatval($priceArr[$i]),
+                    trim($dimensionArr[$i])
+                ];
+            }
+            return $this->dump;
+        }
     }
 }
