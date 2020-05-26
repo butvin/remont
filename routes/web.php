@@ -22,6 +22,8 @@ Route::get('/', 'FrontPageController@index');
 
 Route::resource('services', 'ServiceController');
 
+//Route::get('/services', 'ServiceController@index');
+
 Route::get('deactivate', 'ServiceController@deactivate')->name('deactivate');
 
 Route::get('/home', 'HomeController@index')->name('home');

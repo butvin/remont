@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Service;
-use mysql_xdevapi\Exception;
+//use mysql_xdevapi\Exception;
 use function GuzzleHttp\Promise\all;
 
 class FrontPageController extends Controller
@@ -41,5 +41,9 @@ class FrontPageController extends Controller
        return Service::all();
     }
 
+    public function deactivate()
+    {
+
+    }
 
 }

@@ -112,6 +112,7 @@ class ServiceController extends Controller
                     trim($dimensionArr[$i])
                 ];
             }
+//            return view('services.create');
             return $this->dump;
         }
     }
