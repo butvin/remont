@@ -13,21 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Auth::routes();
 
 //Route::view('/', 'frontpage'); // => works
 
 Route::get('/', 'FrontPageController@index');
-Route::resource('services', 'ServiceController');
-Route::get('/services', 'ServiceController@index')->name('services');
-Route::get('deactivate', 'ServiceController@deactivate')->name('deactivate');
 
-//Route::get('/', function(){
-//    return view('frontpage');
-//});
+Route::resource('services', 'ServiceController');
+
+Route::get('deactivate', 'ServiceController@deactivate')->name('deactivate');
 
 Route::get('/home', 'HomeController@index')->name('home');
