@@ -1,48 +1,100 @@
-@extends('app.layout')
+@extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Add New Product</h2>
+{{--    @parent--}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="col">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <strong>Пиздец!</strong> Хюстон-Хюстон!!! У нас проблемы...<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('frontpage') }}">{{ config('app.name') }}</a>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <h5 class="card-header">
+                    <span>Добавить пункт с записью</span>
+                </h5>
+                <form action="{{ action('ServiceSubjectController@store') }}" method="POST">
+                    @csrf
+
+                    <div class="form-group col">
+                        <div class="md-form">
+                            <label for="nnn" class="col-form-label">Название работы</label>
+                            <input name="name" type="text" class="form-control" id="nnn" placeholder="">
+                            <small class="form-text text-muted">Это название для  работы, которое отобразиться в списке</small>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col">
+                        <label for="serviceSubjectDesc">Краткое описмание</label>
+                        <textarea name="description" class="form-control" id="serviceSubjectDesc" rows="2"></textarea>
+                        <small class="form-text text-muted">Это поле для краткого описания работы, ньюансов, преймуществ и недостатков.</small>
+                    </div>
+
+
+                    <div class="form-group col">
+                        <div class="form-row">
+
+                            <div class="col-5">
+                                <label for="aaa" class="col-form-label">стоимость</label>
+                                <div class="input-group">
+{{--                                    <div class="input-group-prepend"><span class="input-group-text">$</span></div>--}}
+                                    <input name="amount" type="text" class="form-control" id="aaa" aria-label="">
+                                    <div class="input-group-append"><span class="input-group-text">грн</span></div>
+                                </div>
+                                <small class="form-text text-muted">Количество денег за эдиницу измерения</small>
+                            </div>
+
+                            <div class="col-2"></div>
+
+                            <div class="col-5">
+                                <label class="col-form-label" for="dimension">размерность</label>
+                                <div class="input-group btn-group">
+                                    <div class="selectWrapper">
+                                        <select name="dimension" class="form-control" id="dimension">
+                                                <option title="title0" class="" value="none" selected disabled>{{ __('none') }}</option>
+                                                <option title="title1" class="" value="шт.">{{ __('шт.') }}</option>
+                                                <option title="title2" class="" value="м.пог.">м.пог.</option>
+                                                <option title="title3" class="" value="м²">м²</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <small class="form-text text-muted">выберите эдиницы размерности</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="row justify-content-center">
+                            <div class="">
+                                <button type="submit" class="btn btn-primary">
+                                    <span>{{ __('Добавить') }}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+
+
             </div>
         </div>
     </div>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Whoops!</strong> There were some problems with your input.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    <form action="{{ route('products.store') }}" method="POST">
-        @csrf
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-
-    </form>
+</div>
 @endsection

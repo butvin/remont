@@ -18,12 +18,16 @@ Auth::routes();
 
 //Route::view('/', 'frontpage'); // => works
 
-Route::get('/', 'FrontPageController@index');
+Route::get('/', 'FrontPageController@index')->name('frontpage');
 
-Route::resource('services', 'ServiceController');
+Route::resource('services', 'ServiceSubjectController');
+//Route::get('/services/create', 'ServiceSubjectController@create');
 
-//Route::get('/services', 'ServiceController@index');
 
-Route::get('deactivate', 'ServiceController@deactivate')->name('deactivate');
+Route::get('deactivate', 'ServiceSubjectController@deactivate')
+    ->name('deactivate');
+
+Route::get('servicesImport', 'ServiceSubjectController@import')
+    ->name('import');
 
 Route::get('/home', 'HomeController@index')->name('home');

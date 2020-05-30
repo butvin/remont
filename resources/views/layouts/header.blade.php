@@ -21,6 +21,35 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
 
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginModal">
+                    enter
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                Бла-бла-бла, ла-бла-бла, ла-бла-бла, ла-бла-бла
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                <button type="button" class="btn btn-primary">Ok</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 {{--                        @if (Route::has('login'))--}}
                 {{--                            <div class="">--}}
                 {{--                                @auth--}}
@@ -56,7 +85,7 @@
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('Выйти') }}
                             </a>
 
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

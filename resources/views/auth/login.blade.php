@@ -3,7 +3,83 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-sm col-md-6">
+
+
+            <!-- Material form login -->
+            <div class="card">
+
+                <h5 class="card-header info-color white-text text-center py-4">
+                    <strong>Sign in</strong>
+                </h5>
+
+                <!--Card content-->
+                <div class="card-body px-lg-5 pt-0">
+
+                    <!-- Form -->
+                    <form class="text-center" style="color: #757575;" action="#!">
+
+                        <!-- Email -->
+                        <div class="md-form">
+                            <input type="email" id="materialLoginFormEmail" class="form-control">
+                            <label for="materialLoginFormEmail">E-mail</label>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="md-form">
+                            <input type="password" id="materialLoginFormPassword" class="form-control">
+                            <label for="materialLoginFormPassword">Password</label>
+                        </div>
+
+                        <div class="d-flex justify-content-around">
+                            <div>
+                                <!-- Remember me -->
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
+                                    <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
+                                </div>
+                            </div>
+                            <div>
+                                <!-- Forgot password -->
+                                <a href="">Forgot password?</a>
+                            </div>
+                        </div>
+
+                        <!-- Sign in button -->
+                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+
+                        <!-- Register -->
+                        <p>Not a member?
+                            <a href="">Register</a>
+                        </p>
+
+                        <!-- Social login -->
+                        <p>or sign in with:</p>
+                        <a type="button" class="btn-floating btn-fb btn-sm">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-tw btn-sm">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-li btn-sm">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a type="button" class="btn-floating btn-git btn-sm">
+                            <i class="fab fa-github"></i>
+                        </a>
+
+                    </form>
+                    <!-- Form -->
+
+                </div>
+
+            </div>
+            <!-- Material form login -->
+
+
+
+
+
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -45,7 +121,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        {{ __('Запомнить данные') }}
                                     </label>
                                 </div>
                             </div>
@@ -54,12 +130,12 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                    {{ __('sign in') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Память дырявая?') }}
                                     </a>
                                 @endif
                             </div>

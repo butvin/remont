@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ServiceSubject;
 
-use App\Service;
-//use mysql_xdevapi\Exception;
-use function GuzzleHttp\Promise\all;
+
 
 class FrontPageController extends Controller
 {
@@ -26,19 +25,18 @@ class FrontPageController extends Controller
      */
     public function index()
     {
-        $services = $this->getAllServices();
-
+        $services = $this->getAllServiceSubjects();
         return view('frontpage', compact('services'));
     }
 
     /**
      * Collect the application services.
      *
-     * @return Service[]|\Illuminate\Database\Eloquent\Collection
+     * @return ServiceSubject[]|\Illuminate\Database\Eloquent\Collection
      */
-    public function getAllServices()
+    public function getAllServiceSubjects()
     {
-       return Service::all();
+       return ServiceSubject::all();
     }
 
     public function deactivate()
