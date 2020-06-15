@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 //use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Database\Eloquent\Collection;
+
 class ServiceSubjectController extends Controller
 {
     private array $dump;
@@ -38,7 +40,7 @@ class ServiceSubjectController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
@@ -49,22 +51,20 @@ class ServiceSubjectController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-//        dump($request->all()); die();
-//        var_dump($request->all() ); die();
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'amount' => 'required',
             'dimension' => 'required',
         ]);
 
-       ServiceSubject::create( $request->all() );
+        ServiceSubject::create( $request->all() );
 
         return redirect()->route('frontpage')
-            ->with('Ура!!!','Идем к успеху!!!.');
+            ->with('success', 'Добавлено');
     }
 
     /**
@@ -82,11 +82,17 @@ class ServiceSubjectController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\ServiceSubject $service
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(ServiceSubject $service)
     {
-        return view('services.edit', compact('service'));
+        $dimensions = $this->getAllUniqAttributes('dimension');
+        return view('services.edit')
+            ->with('service', $service)
+            ->with('dimensions', $dimensions);
+
+
+//        return view('services.edit', ['service' => $service,])->with($uniqDimensions);
     }
 
     /**
@@ -105,14 +111,35 @@ class ServiceSubjectController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\ServiceSubject  $service
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(ServiceSubject $service)
     {
         $service->delete();
+
         return redirect()->route('frontpage')
-            ->with('success','Product deleted successfully');
+            ->with('success','Удалено');
     }
+
+
+    /**
+     * Return all uniq dimensions from storage.
+     *
+     * @param string $columnName
+     * @return ServiceSubject[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getAllUniqAttributes( string $columnName)
+    {
+        $unique = [];
+        //$collection = ServiceSubject::all($columnName);
+
+        foreach ( ServiceSubject::all($columnName) as $attr) {
+            $unique[] = $attr->dimension;
+        }
+
+        return array_unique($unique);
+    }
+
 
     /**
      * Import services data to DB
@@ -269,6 +296,8 @@ $dimensions="шт.
 шт
 шт
 шт";
+
+$fix = "UPDATE service_subjects SET `dimension` = `шт.` WHERE (`dimension` like `шт`);";
         $nameArr = explode(PHP_EOL, $names);
         $priceArr = explode(PHP_EOL, $prices);
         $dimensionArr = explode(PHP_EOL, $dimensions);
@@ -291,9 +320,11 @@ $dimensions="шт.
                     'dimension' => trim($dimensionArr[$i]),
                 ]);
             }
+
             var_dump($dump);die();
         }
     }
+
 
 
 

@@ -11,7 +11,7 @@ class ServiceSubject extends Model
      *
      * @var string
      */
-    //protected $table = 'service_subjects';
+    protected $table = 'service_subjects';
 
     /**
      * The primary key associated with the table.
@@ -43,4 +43,20 @@ class ServiceSubject extends Model
     protected $attributes = [
         'active' => true,
     ];
+
+    /**
+     * Return all uniq dimensions from storage.
+     *
+     * @param string $name
+     * @return bool
+     */
+    public function getAllUniqColumnAttributes( string $name = '')
+    {
+        if ( empty($name) ) {
+
+        }
+            return false;
+//        return self::table('service_subjects')->distinct()->get();
+    }
+
 }

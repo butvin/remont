@@ -53,15 +53,35 @@
                             </td>
                             @if (Route::has('login'))
                                 @auth
-                                    <td>
-                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST">
-{{--                                            <a class="btn btn-primary" href="{{ route('services.show',$service->id) }}">Инфо</a>--}}
-                                            <a class="btn btn-primary" href="{{ route('services.edit', $service->id) }}">Изменить</a>
-{{--                                            <a class="btn btn-primary" href="{{ route('deactivate',$service->id) }}">Скрыть</a>--}}
-                                            @csrf
-                                            @method('DELETE')
+                                    <td class="align-middle text-center">
+                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST" class=" ">
+                                            <ul class="navbar-nav mr-auto">
+                                                <li class="nav-item">
+                                                    <div class="">
+                                                        <a class="btn btn-primary" href="{{ route('services.edit', $service->id) }}">
+                                                            <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <div class="">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-warning" value="{{ route('services.destroy', $service->id) }}">
+                                                            <i class="fa fa-digg fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <div class="">
+                                                        @csrf
+                                                        @method('DELETE')
 
-                                            <button type="submit" class="btn btn-outline-secondary">Удалиьт</button>
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </li>
+                                            </ul>
                                         </form>
                                     </td>
                                 @endauth

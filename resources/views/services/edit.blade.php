@@ -25,54 +25,52 @@
                     @csrf
                     @method('PUT')
 
-
-                    <div class="form-group col">
-                        <div class="">
-                            <label for="nnn" class="col-form-label">Название работы</label>
-                            <input name="name" value="{{ $service->name }}" type="text" class="form-control" id="nnn" placeholder="доьавьте названиие">
-                            <small class="form-text text-muted">Это название для  работы, которое отобразиться в списке</small>
-                        </div>
+                    <div class="form-group ">
+                        <label for="serviceSubjectName">Название деятельности</label>
+                        <textarea name="name" class="form-control" id="serviceSubjectName" rows="3" >{{ $service->name }}</textarea>
+                        <small class="form-text text-muted">Краткое описмание работы, ньюансов, преймуществ и недостатков.</small>
                     </div>
 
-
-                    <div class="form-group col">
-                        <label for="serviceSubjectDesc">Краткое описмание</label>
-                        <textarea name="description" class="form-control" id="serviceSubjectDesc" rows="2">{{ $service->description }}</textarea>
-                        <small class="form-text text-muted">Это поле для краткого описания работы, ньюансов, преймуществ и недостатков.</small>
-                    </div>
-
-
-                    <div class="form-group col">
+                    <div class="form-group ">
                         <div class="form-row">
                             <div class="col-5">
-                                <label for="aaa" class="col-form-label">Стоимость</label>
+                                <label for="aaa" class="col-form-label">Цена</label>
                                 <div class="input-group">
-                                    <div class="input-group-prepend"><span class="input-group-text">$</span></div>
+{{--                                    <div class="input-group-prepend"><span class="input-group-text">грн</span></div>--}}
                                     <input name="amount" value="{{ $service->amount }}" type="text" class="form-control" id="aaa" aria-label="Округлите">
-                                    <div class="input-group-append"><span class="input-group-text">.00 грн</span></div>
+{{--                                    <div class="input-group-append"><span class="input-group-text">.00 грн</span></div>--}}
+                                    <div class="input-group-apppend"><span class="input-group-text">грн</span></div>
                                 </div>
-                                <small class="form-text text-muted">Количество денег за эдиницу измерения</small>
+                                <small class="form-text text-muted">Стоимость выполненой работы в грн</small>
                             </div>
+
                             <div class="col-2"></div>
+
                             <div class="col-5">
-                                <label for="aaa" class="col-form-label">Эдиницы измерения</label>
-                                <div class="input-group ">
-                                    <div class="input-group-prepend"><span class="input-group-text"> шт.</span></div>
-                                    <div class="input-group-prepend"><span class="input-group-text"> м.пог. </span></div>
-                                    <div class="input-group-prepend"><span class="input-group-text"> м² </span></div>
-                                    <input name="dimension" value="{{ $service->dimension }}" type="text" class="form-control" id="aaa" aria-label="Округлите">
-                                    <div class="input-group-append"><span class="input-group-text">OK</span></div>
+                                <label class="col-form-label" for="dimension">Размерность</label>
+                                <div class="input-group btn-group">
+                                        <select name="dimension" class="form-control" id="dimension">
+                                            <option value="undefined" selected disabled>--</option>
+                                            @foreach($dimensions as $key => $dimension)
+                                                <option value="{{$dimension}}"
+                                                @if ($service->dimension == $dimension)
+                                                    selected="selected"
+                                                @endif
+                                                >{{$dimension}}</option>
+                                            @endforeach
+                                        </select>
                                 </div>
-                                <small class="form-text text-muted">выберите эдиницы размерности</small>
+                                <small class="form-text text-muted">Выберите эдиницы размерности</small>
                             </div>
                         </div>
                     </div>
 
-
-                    <div class="form-group col">
+                    <div class="form-group">
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-outline-primary btn-lg">Добавить</button>
+                                <button type="submit" class="btn btn-primary">
+                                    Редактировать
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -80,7 +78,5 @@
                 </form>
             </div>
         </div>
-
     </div>
-
 @endsection
