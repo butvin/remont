@@ -100,18 +100,28 @@ class ServiceSubjectController extends Controller
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \App\ServiceSubject $service
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, ServiceSubject $service)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'amount' => 'required',
+            'dimension' => 'required',
+        ]);
+
+        $service->update($request->all());
+
+        return redirect()->route('frontpage')
+            ->with('success','Правки внесены');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ServiceSubject  $service
+     * @param \App\ServiceSubject $service
      * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
     public function destroy(ServiceSubject $service)
     {

@@ -28,7 +28,7 @@
                     <div class="form-group ">
                         <label for="serviceSubjectName">Название деятельности</label>
                         <textarea name="name" class="form-control" id="serviceSubjectName" rows="3" >{{ $service->name }}</textarea>
-                        <small class="form-text text-muted">Краткое описмание работы, ньюансов, преймуществ и недостатков.</small>
+                        <small class="form-text text-muted">Краткое описмание работы, ньюансов и преймуществ</small>
                     </div>
 
                     <div class="form-group ">

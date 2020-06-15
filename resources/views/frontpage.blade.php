@@ -53,35 +53,22 @@
                             </td>
                             @if (Route::has('login'))
                                 @auth
-                                    <td class="align-middle text-center">
-                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST" class=" ">
-                                            <ul class="navbar-nav mr-auto">
-                                                <li class="nav-item">
-                                                    <div class="">
-                                                        <a class="btn btn-primary" href="{{ route('services.edit', $service->id) }}">
-                                                            <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <div class="">
-                                                        @csrf
-                                                        <button type="submit" class="btn btn-warning" value="{{ route('services.destroy', $service->id) }}">
-                                                            <i class="fa fa-digg fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </div>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <div class="">
-                                                        @csrf
-                                                        @method('DELETE')
+                                    <td class="">
+                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST">
 
-                                                        <button type="submit" class="btn btn-danger">
-                                                            <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                        </button>
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                            <div class="nav-item">
+                                                <a class="btn btn-primary" href="{{ route('services.edit', $service->id) }}">
+                                                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+
+                                            <div class="nav-item">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">
+                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
                                         </form>
                                     </td>
                                 @endauth
