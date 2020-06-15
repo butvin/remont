@@ -2,13 +2,11 @@
 
 @section('content')
     <div class="container">
-        <p>Контент вьюхи "frontpage"</p>
-    </div>
-
-    <div class="container">
         <div class="row">
             <div class="col-12">
-                <p>{{ __('Стоимость строительных работ') }}</p>
+                <h1>{{ __('Стоимость строительных работ') }}
+                    <small class="text-muted">{{ __('Сантехника, отопление, фильтра') }}</small>
+                </h1>
 
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
@@ -19,7 +17,7 @@
                 <!-- Draw table of ServiceSubjects -->
 
                 <div class="table-responsive">
-                <table id="servicesTable" class="table table-bordered table-striped table-hover {{-- table-responsive --}}">
+                <table id="servicesTable" class="table table-bordered table-striped table-hover">
                     <thead class="thead-dark">
                     <tr class="">
                         <th class="align-middle text-center" scope="col">#</th>
@@ -46,7 +44,9 @@
                     @foreach ($services as $service)
                         <tr>
                             <th class="align-middle text-center" scope="row">{{ $service->id }}</th>
-                            <td class="align-middle" >{{ $service->name }}</td>
+                            <td class="align-middle " >
+                                {{ $service->name }}
+                            </td>
                             <td class="align-middle text-center">
                                 <strong>{{ $service->amount }}</strong><br>
                                 <span class="text-muted">{{ __('грн') }}&nbsp;/&nbsp;{{ $service->dimension }}</span>
@@ -69,6 +69,7 @@
                                                     <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
                                                 </button>
                                             </div>
+
                                         </form>
                                     </td>
                                 @endauth

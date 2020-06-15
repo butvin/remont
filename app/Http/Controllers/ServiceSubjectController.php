@@ -34,7 +34,7 @@ class ServiceSubjectController extends Controller
      */
     public function index()
     {
-        $services = ServiceSubject::all();
+//        $services = ServiceSubject::all();
     }
 
     /**
