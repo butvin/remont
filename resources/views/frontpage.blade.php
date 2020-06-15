@@ -17,21 +17,23 @@
                 @endif
 
                 <!-- Draw table of ServiceSubjects -->
-                <table id="servicesTable" class="table table-bordered table-striped table-hover">
+
+                <div class="table-responsive">
+                <table id="servicesTable" class="table table-bordered table-striped table-hover {{-- table-responsive --}}">
                     <thead class="thead-dark">
-                    <tr>
-{{--                        <th scope="col">#</th>--}}
-                        <th scope="col">
-                            <span>{{ __('Описание услуги') }}</span>
+                    <tr class="">
+                        <th class="align-middle text-center" scope="col">#</th>
+                        <th class="align-middle text-center" scope="col">
+                            {{ __('Описание услуги') }}
                         </th>
-                        <th scope="col">
-                            <span>{{ __('Цена, грн') }}</span>
+                        <th class="align-middle text-center" scope="col">
+                            {{ __('Цена, грн') }}
                         </th>
                         @if (Route::has('login'))
+                            {{-- Add a new subject service element--}}
                             @auth
                                 <th scope="col">
                                     <a class="btn btn-primary" href="{{ url('/services/create') }}">
-{{--                                    <a class="btn btn-primary" href="/services/create">--}}
                                         <span class="">{{ __('Добавить') }}</span>
                                     </a>
                                 </th>
@@ -39,13 +41,14 @@
                         @endif
                     </tr>
                     </thead>
+
                     <tbody class="">
                     @foreach ($services as $service)
                         <tr>
-{{--                            <th scope="row">{{ $service->id }}</th>--}}
-                            <td><span class="">{{ $service->name }}</span></td>
-                            <td class="text-center">
-                                <span>{{ $service->amount }}</span><br>
+                            <th class="align-middle text-center" scope="row">{{ $service->id }}</th>
+                            <td class="align-middle" >{{ $service->name }}</td>
+                            <td class="align-middle text-center">
+                                <strong>{{ $service->amount }}</strong><br>
                                 <span class="text-muted">{{ __('грн') }}&nbsp;/&nbsp;{{ $service->dimension }}</span>
                             </td>
                             @if (Route::has('login'))
@@ -61,20 +64,14 @@
                                             <button type="submit" class="btn btn-outline-secondary">Удалиьт</button>
                                         </form>
                                     </td>
-{{--                                @else--}}
-{{--                                    <a href="{{ route('login') }}">Войти</a>--}}
-{{--                                    @if (Route::has('register'))--}}
-{{--                                    <a href="{{ route('register') }}">Зарегистрироваться</a>--}}
-{{--                                @endif--}}
                                 @endauth
                             @endif
-
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </div>
     </div>
-{{--    @yield('services')--}}
 @endsection

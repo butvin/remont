@@ -30,18 +30,17 @@
                 <form action="{{ action('ServiceSubjectController@store') }}" method="POST">
                     @csrf
 
-                    <div class="form-group col">
-                        <div class="md-form">
-                            <label for="nnn" class="col-form-label">Название работы</label>
-                            <input name="name" type="text" class="form-control" id="nnn" placeholder="">
-                            <small class="form-text text-muted">Это название для  работы, которое отобразиться в списке</small>
-                        </div>
-                    </div>
-
+{{--                    <div class="form-group col">--}}
+{{--                        <div class="md-form">--}}
+{{--                            <label for="nnn" class="col-form-label">Название работы</label>--}}
+{{--                            <input name="name" type="text" class="form-control" id="nnn" placeholder="">--}}
+{{--                            <small class="form-text text-muted">Это название для  работы, которое отобразиться в списке</small>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="form-group col">
                         <label for="serviceSubjectDesc">Краткое описмание</label>
-                        <textarea name="description" class="form-control" id="serviceSubjectDesc" rows="2"></textarea>
+                        <textarea name="name" class="form-control" id="serviceSubjectDesc" rows="2"></textarea>
                         <small class="form-text text-muted">Это поле для краткого описания работы, ньюансов, преймуществ и недостатков.</small>
                     </div>
 

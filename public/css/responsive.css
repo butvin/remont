@@ -7,28 +7,37 @@
 
 /*Small devices (landscape phones, 576px and up)*!*/
 @media (min-width: 576px) and (max-width: 767.98px) {
-    body {
+    #app {
         background-color: #0E9A00;
     }
 }
 
 /*Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
-    body {
+    #app {
         background-color: #0C9A9A;
     }
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
-    body {
+    #app {
         background-color: yellowgreen;
     }
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-    body {
-        background-color: yellow;
+    /*#servicesTable {*/
+    /*    font-size: 1.5em;*/
+    /*}*/
+
+    /*#servicesTable > tbody span.text-muted {*/
+    /*    font-size: 0.75em;*/
+    /*}*/
+
+    #app {
+        background-color: #c5d0ef;
+
     }
 }
