@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="front-title text-center">
-                    {{ __('Цены строительных работ') }}
+                    {{ __('Стоимости строительных работ') }}
                 </h1>
 
                 @if ($message = Session::get('success'))
@@ -21,12 +21,11 @@
                         <tr>
                             <th class="align-middle text-center" scope="col">
                                 <span class="table-content-text">
-                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                    <i class="fa fa-list-ul" aria-hidden="true"></i>
                                 </span>
-
                             </th>
                             <th class="align-middle text-center" scope="col">
-                                <span class="table-content-text">{{ __('Название') }}</span>
+                                <span class="table-content-text">{{ __('Наименование') }}</span>
                             </th>
                             <th class="align-middle text-center" scope="col">
                                 <span class="table-content-text">{{ __('Цена') }}</span>
@@ -56,7 +55,7 @@
                             <td class="align-middle">
                                 <div>
                                     <span class="table-content-text">
-                                        <i style="color: #f9c00c;" class="fa fa-folder" aria-hidden="true"></i>
+                                        <i style="color: #f9c00c;" class="fa fa-folder-open" aria-hidden="true"></i>
                                         {{--First letter to upper ucfirst() analog--}}
                                         {{ mb_strtoupper(mb_substr($service->name, 0, 1)).mb_strtolower(mb_substr($service->name, 1)) }}
                                     </span>

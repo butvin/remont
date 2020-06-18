@@ -3,82 +3,48 @@
         <div class="col-12">
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm sticky-top">
 
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ __('Сантехника, отопление, фильтра') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <div class="brand-block">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span class="brand-text">{{ __('Сантехника, отопление, фильтра') }}</span>
+                    </a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('навигация') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                    <!-- Left Side Of Navbar -->
-{{--                    <ul class="navbar-nav mr-auto">--}}
-{{--                        <li class="nav-item">1</li>--}}
-{{--                        <li class="nav-item">2</li>--}}
-{{--                        <li class="nav-item">3</li>--}}
-{{--                        <li class="nav-item">4</li>--}}
-{{--                    </ul>--}}
-
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-
-                        <!-- Button trigger modal -->
-{{--                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginModal">--}}
-{{--                            enter--}}
-{{--                        </button>--}}
-
-                        <!-- Modal -->
-{{--                        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
-{{--                            <div class="modal-dialog">--}}
-{{--                                <div class="modal-content">--}}
-
-{{--                                    <div class="modal-header">--}}
-{{--                                        <h5 class="modal-title" id="exampleModalLabel">Login</h5>--}}
-{{--                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">--}}
-{{--                                            <span aria-hidden="true">&times;</span>--}}
-{{--                                        </button>--}}
-{{--                                    </div>--}}
-
-{{--                                    <div class="modal-body">--}}
-{{--                                        Бла-бла-бла, ла-бла-бла, ла-бла-бла, ла-бла-бла--}}
-{{--                                    </div>--}}
-
-{{--                                    <div class="modal-footer">--}}
-{{--                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>--}}
-{{--                                        <button type="button" class="btn btn-primary">Ok</button>--}}
-{{--                                    </div>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('залогиниться') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('войти') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('зарегаться') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('регистр.') }}</a>
                                 </li>
                             @endif
-                        @else
+                            @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/home') }}">профиль</a>
+                                <a class="nav-link" href="{{ url('/home') }}">
+                                    <i class="fa fa-cogs" aria-hidden="true"></i>
+
+                                </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="user-name-text">{{ Auth::user()->name }}</span>
+                                    <span class="caret"></span>
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Выйти') }}
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        {{ __('выйти') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
