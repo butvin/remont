@@ -1,0 +1,24 @@
+body {
+
+    font-family: "Nunito", sans-serif;
+    /*font-size: 0.9rem;*/
+    font-weight: 200;
+    line-height: 1.25;
+
+}
+
+.front-title {font-size: 3em;}
+span.table-number-text {
+    font-weight: 200;
+}
+span.table-content-text {
+    font-size: 28px;
+}
+span.price-text {
+    font-size: 28px;
+    font-weight: 600;
+}
+span.dimension-text {
+    font-size: 18px;
+    font-weight: 400;
+}

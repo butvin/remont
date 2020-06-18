@@ -1,43 +1,102 @@
 /*Extra small devices (portrait phones, less than 576px)*/
 @media (max-width: 575.98px) {
-    body {
-        background-color: tomato;
+    #app {
+        /*background-color: tomato;*/
+    }
+    .front-title {font-size: 22px;}
+    span.table-number-text {
+        font-size: 12px;
+    }
+    span.table-content-text {
+        font-size: 16px;
+    }
+    span.price-text {
+        font-size: 16px;
+    }
+    span.dimension-text {
+        font-size: 10px;
     }
 }
 
-/*Small devices (landscape phones, 576px and up)*!*/
+/*Small devices (landscape phones, 576px - 767.98px)*/
 @media (min-width: 576px) and (max-width: 767.98px) {
     #app {
-        background-color: #0E9A00;
+        /*background-color: #32f900;*/
+    }
+    span.table-number-text {
+        font-size: 18px;
+    }
+    span.table-content-text, .front-title {
+        font-size: 20px;
+    }
+    span.price-text {
+        font-size: 20px;
+    }
+    span.dimension-text {
+        font-size: 16px;
     }
 }
 
-/*Medium devices (tablets, 768px and up)*/
+/*Medium devices (tablets, 768px - 991.98px)*/
 @media (min-width: 768px) and (max-width: 991.98px) {
     #app {
-        background-color: #0C9A9A;
+        /*background-color: #0C9A9A;*/
+    }
+    .front-title {
+        font-size: 32px;
+    }
+    span.table-number-text {
+        font-size: 20px;
+    }
+    span.table-content-text {
+        font-size: 24px;
+    }
+    span.price-text {
+        font-size: 24px;
+    }
+    span.dimension-text {
+        font-size: 18px;
     }
 }
 
 /*Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) and (max-width: 1199.98px) {
     #app {
-        background-color: yellowgreen;
+        /*background-color: yellowgreen;*/
+    }
+    .front-title {
+        font-size: 36px;
+    }
+    span.table-number-text {
+        font-size: 18px;
+    }
+    span.table-content-text {
+        font-size: 26px;
+    }
+    span.price-text {
+        font-size: 24px;
+    }
+    span.dimension-text {
+        font-size: 18px;
     }
 }
 
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
-    /*#servicesTable {*/
-    /*    font-size: 1.5em;*/
-    /*}*/
-
-    /*#servicesTable > tbody span.text-muted {*/
-    /*    font-size: 0.75em;*/
-    /*}*/
-
     #app {
-        background-color: #c5d0ef;
+        background-color: #F8F8FF;
+    }
 
+    span.table-number-text {
+        font-size: 24px;
+    }
+    span.table-content-text {
+        font-size: 28px;
+    }
+    span.price-text {
+        font-size: 28px;
+    }
+    span.dimension-text {
+        font-size: 18px;
     }
 }

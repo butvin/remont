@@ -4,73 +4,91 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>{{ __('Стоимость строительных работ') }}
-                    <small class="text-muted">{{ __('Сантехника, отопление, фильтра') }}</small>
+                <h1 class="front-title text-center">
+                    {{ __('Цены строительных работ') }}
                 </h1>
 
                 @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
+                    <div style="width: 25%;" class="alert alert-success">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
 
                 <!-- Draw table of ServiceSubjects -->
-
                 <div class="table-responsive">
-                <table id="servicesTable" class="table table-bordered table-striped table-hover">
+                <table id="service-subjects-table" class="table table-bordered table-striped table-hover">
                     <thead class="thead-dark">
-                    <tr class="">
-                        <th class="align-middle text-center" scope="col">#</th>
-                        <th class="align-middle text-center" scope="col">
-                            {{ __('Описание услуги') }}
-                        </th>
-                        <th class="align-middle text-center" scope="col">
-                            {{ __('Цена, грн') }}
-                        </th>
-                        @if (Route::has('login'))
-                            {{-- Add a new subject service element--}}
-                            @auth
-                                <th scope="col">
-                                    <a class="btn btn-primary" href="{{ url('/services/create') }}">
-                                        <span class="">{{ __('Добавить') }}</span>
-                                    </a>
-                                </th>
-                            @endauth
-                        @endif
-                    </tr>
+                        <tr>
+                            <th class="align-middle text-center" scope="col">
+                                <span class="table-content-text">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </span>
+
+                            </th>
+                            <th class="align-middle text-center" scope="col">
+                                <span class="table-content-text">{{ __('Название') }}</span>
+                            </th>
+                            <th class="align-middle text-center" scope="col">
+                                <span class="table-content-text">{{ __('Цена') }}</span>
+                            </th>
+                            @if (Route::has('login'))
+                                @auth
+                                    <th scope="col">
+                                        <div>
+                                            <a class="btn btn-primary" href="{{ url('/services/create') }}" title="{{ __('Добавить услугу') }}">
+                                                <i class="fa fa-plus fa-3x" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
+                                    </th>
+                                @endauth
+                            @endif
+                        </tr>
                     </thead>
 
                     <tbody class="">
                     @foreach ($services as $service)
-                        <tr>
-                            <th class="align-middle text-center" scope="row">{{ $service->id }}</th>
-                            <td class="align-middle " >
-                                {{ $service->name }}
+                        <tr class="table-row">
+                            <th scope="row" class="align-middle text-center">
+                                <span class="table-number-text">
+                                    {{ $service->id }}
+                                </span>
+                            </th>
+                            <td class="align-middle">
+                                <div>
+                                    <span class="table-content-text">
+                                        <i style="color: #f9c00c;" class="fa fa-folder" aria-hidden="true"></i>
+                                        {{--First letter to upper ucfirst() analog--}}
+                                        {{ mb_strtoupper(mb_substr($service->name, 0, 1)).mb_strtolower(mb_substr($service->name, 1)) }}
+                                    </span>
+                                </div>
                             </td>
                             <td class="align-middle text-center">
-                                <strong>{{ $service->amount }}</strong><br>
-                                <span class="text-muted">{{ __('грн') }}&nbsp;/&nbsp;{{ $service->dimension }}</span>
+                                <span class="table-content-text">
+                                    <span class="price-text">{{ $service->amount }}</span><br>
+                                    <span class="dimension-text text-muted">{{ __('грн') }}&nbsp;/&nbsp;{{ $service->dimension }}</span>
+                                </span>
                             </td>
                             @if (Route::has('login'))
                                 @auth
-                                    <td class="">
-                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST">
-
-                                            <div class="nav-item">
-                                                <a class="btn btn-primary" href="{{ route('services.edit', $service->id) }}">
-                                                    <i class="fa fa-pencil fa-2x" aria-hidden="true"></i>
-                                                </a>
-                                            </div>
-
-                                            <div class="nav-item">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">
-                                                    <i class="fa fa-trash-o fa-2x" aria-hidden="true"></i>
-                                                </button>
-                                            </div>
-
-                                        </form>
+                                    <td class="align-middle text-center">
+                                        <div>
+                                            <form action="{{ route('services.destroy', $service->id) }}" method="POST">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <a class="btn btn-primary" href="{{ route('services.edit', $service->id) }}">
+                                                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </td>
                                 @endauth
                             @endif

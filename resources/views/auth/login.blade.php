@@ -4,91 +4,15 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-sm col-md-6">
-
-
-            <!-- Material form login -->
             <div class="card">
-
-                <h5 class="card-header info-color white-text text-center py-4">
-                    <strong>Sign in</strong>
-                </h5>
-
-                <!--Card content-->
-                <div class="card-body px-lg-5 pt-0">
-
-                    <!-- Form -->
-                    <form class="text-center" style="color: #757575;" action="#!">
-
-                        <!-- Email -->
-                        <div class="md-form">
-                            <input type="email" id="materialLoginFormEmail" class="form-control">
-                            <label for="materialLoginFormEmail">E-mail</label>
-                        </div>
-
-                        <!-- Password -->
-                        <div class="md-form">
-                            <input type="password" id="materialLoginFormPassword" class="form-control">
-                            <label for="materialLoginFormPassword">Password</label>
-                        </div>
-
-                        <div class="d-flex justify-content-around">
-                            <div>
-                                <!-- Remember me -->
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">
-                                    <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>
-                                </div>
-                            </div>
-                            <div>
-                                <!-- Forgot password -->
-                                <a href="">Forgot password?</a>
-                            </div>
-                        </div>
-
-                        <!-- Sign in button -->
-                        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
-
-                        <!-- Register -->
-                        <p>Not a member?
-                            <a href="">Register</a>
-                        </p>
-
-                        <!-- Social login -->
-                        <p>or sign in with:</p>
-                        <a type="button" class="btn-floating btn-fb btn-sm">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a type="button" class="btn-floating btn-tw btn-sm">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a type="button" class="btn-floating btn-li btn-sm">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a type="button" class="btn-floating btn-git btn-sm">
-                            <i class="fab fa-github"></i>
-                        </a>
-
-                    </form>
-                    <!-- Form -->
-
-                </div>
-
-            </div>
-            <!-- Material form login -->
-
-
-
-
-
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Войти') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -102,7 +26,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Пароль') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -115,27 +39,38 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+{{--                        <div class="form-group row">--}}
+{{--                            <div class="col-md-6 offset-md-4">--}}
+{{--                                <div class="form-check">--}}
+{{--                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Запомнить данные') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+{{--                                    <label class="form-check-label" for="remember">--}}
+{{--                                        {{ __('Запомнить данные') }}--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="form-group row">--}}
+{{--                            <div class="col-md-6 offset-md-4">--}}
+{{--                                <div class="form-check">--}}
+{{--                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+
+{{--                                    <label class="form-check-label" for="remember">--}}
+{{--                                        {{ __('Запомнить данные') }}--}}
+{{--                                    </label>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('sign in') }}
+                                    {{ __('Вход') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Память дырявая?') }}
+                                        {{ __('Забыли пароль?') }}
                                     </a>
                                 @endif
                             </div>

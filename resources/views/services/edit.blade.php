@@ -20,7 +20,7 @@
         </div>
 
         <div class="row">
-            <div class="">
+            <div class="col">
                 <form action="{{ route('services.update', $service->id) }}" method="POST">
                     @csrf
                     @method('PUT')
