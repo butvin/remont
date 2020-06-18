@@ -1,22 +1,26 @@
 body {
     font-family: "Nunito", sans-serif;
     font-family: FontAwesome, monospace;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 100;
     line-height: 1.2;
     color: #404146;
-
-
-
-    /*font-size: 1rem;*/
-    /*font-weight: 100;*/
-    /*line-height: 1;*/
+    background-color: #F8FAFF;
 }
 
 .front-title {
-    font-size: 3em;
-    margin: 0.75em auto;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
 
+}
+.second-front-title {
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1px;
+    font-weight: 100;
+    line-height: 1.5;
+    margin: 0 0 1.5em;
 }
 span.table-number-text {
     font-weight: 200;
@@ -30,13 +34,14 @@ span.price-text {
 }
 span.dimension-text {
     font-size: 18px;
-    font-weight: 400;
+    font-weight: 200;
 }
 
 #service-subjects-table tbody {
     /*background-color: #34314c;*/
     /*font-weight: 200;*/
     color: #34314c;
+    /*letter-spacing: -1px;*/
 }
 #service-subjects-table thead th {
     background-color: #34314c;

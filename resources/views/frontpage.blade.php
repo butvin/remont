@@ -5,16 +5,20 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="front-title text-center">
-                    {{ __('Стоимости строительных работ') }}
+                    {{ __('Прайс строительных работ') }}
                 </h1>
 
+                <h2 class="second-front-title text-center">
+                    {{ __('Сантехника, отопление, фильтра') }}
+                </h2>
+
                 @if ($message = Session::get('success'))
-                    <div style="width: 25%;" class="alert alert-success">
+                    <div style="width: 25%;" class="alert alert-success text-center">
                         <p>{{ $message }}</p>
                     </div>
                 @endif
 
-                <!-- Draw table of ServiceSubjects -->
+                <!-- Draw the table of ServiceSubjects -->
                 <div class="table-responsive">
                 <table id="service-subjects-table" class="table table-bordered table-striped table-hover">
                     <thead class="thead-dark">

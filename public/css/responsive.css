@@ -3,7 +3,10 @@
     #app {
         /*background-color: tomato;*/
     }
-    .front-title {font-size: 22px;}
+    .front-title {
+        font-size: 22px;
+    }
+    .second-front-title { font-size: 18px;}
     span.table-number-text {
         font-size: 12px;
     }
@@ -23,10 +26,14 @@
     #app {
         /*background-color: #32f900;*/
     }
+    .front-title {
+        font-size: 28px;
+    }
+    .second-front-title { font-size: 20px;}
     span.table-number-text {
         font-size: 18px;
     }
-    span.table-content-text, .front-title {
+    span.table-content-text {
         font-size: 20px;
     }
     span.price-text {
@@ -45,6 +52,7 @@
     .front-title {
         font-size: 32px;
     }
+    .second-front-title { font-size: 22px;}
     span.table-number-text {
         font-size: 20px;
     }
@@ -67,6 +75,7 @@
     .front-title {
         font-size: 36px;
     }
+    .second-front-title { font-size: 26px;}
     span.table-number-text {
         font-size: 18px;
     }
@@ -84,17 +93,20 @@
 /*Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
     #app {
-        background-color: #F8F8FF;
+        /*background-color: #F8F8FF;*/
     }
-
+    .front-title {
+        font-size: 42px;
+    }
+    .second-front-title { font-size: 28px;}
     span.table-number-text {
-        font-size: 24px;
+        font-size: 22px;
     }
     span.table-content-text {
-        font-size: 28px;
+        font-size: 24px;
     }
     span.price-text {
-        font-size: 28px;
+        font-size: 24px;
     }
     span.dimension-text {
         font-size: 18px;
